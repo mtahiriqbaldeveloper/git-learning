@@ -59,3 +59,12 @@ Current PR: fullName field exists
 - Documentation
 
 **Recommendation:** Implement immediately. Low effort, high impact protection.
+
+
+private String maskSensitiveData(String json) {
+    // Mask any account number that follows the pattern PREFIX-NUMBERS
+    return json.replaceAll(
+        "(\"\\w*AccountNumber\"\\s*:\\s*\"[A-Z]+-?)(\\d+)(\")",
+        "$1*****$3"
+    );
+}
