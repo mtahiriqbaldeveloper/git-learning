@@ -62,9 +62,8 @@ Current PR: fullName field exists
 
 
 private String maskSensitiveData(String json) {
-    // Mask any account number that follows the pattern PREFIX-NUMBERS
     return json.replaceAll(
-        "(\"CryptoAccountNumber\"\\s*:\\s*\"[A-Z]+-)(\\d+)(\")",
+        "(\"CryptoAccountNumber\"\\s*:\\s*\"CRYPTO-)(\\d+)(\")",
         "$1*****$3"
     );
 }
